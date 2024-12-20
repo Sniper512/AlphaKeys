@@ -1,0 +1,54 @@
+.firstbutton {
+  font-family: monospace;
+  font-weight: 200;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  width: 50px;
+  height: 40px;
+  border: 2px black solid;
+  border-radius: 10px;
+  background-color: white;
+}
+.newbutton {
+  background-color: blueviolet;
+  animation: buttonclick 0.15s;
+}
+.keyboard {
+  text-align: center;
+}
+@keyframes buttonclick {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.mediumBtn {
+  width: 125px;
+}
+.enterBtn {
+  width: 120px;
+}
+.shiftBtn {
+  width: 150px;
+}
+.spaceBtn {
+  width: 250px;
+}
+.textToType {
+  text-align: center;
+  font-family: monospace;
+  font-weight: bold;
+  width: 100%;
+  height: 50px;
+  font-size: 30px;
+  border: 0;
+  caret-shape: block;
+}
+.textToType:focus {
+  outline: none;
+}
