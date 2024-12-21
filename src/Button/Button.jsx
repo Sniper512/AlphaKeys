@@ -168,8 +168,6 @@ function Button(props) {
           <input disabled type="text" id="typeWords" className={`${style.textToType} ${style.textForType}`} value={props.word.join(" ")} />
         </div>
       )}
-
-      <br />
       <br />
       <div>{firstrow}</div>
       <div>{secondrow}</div>
