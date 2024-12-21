@@ -43,14 +43,16 @@ h1 {
   display: flex;
 }
 .labelRadio {
+  align-self: center;
   box-sizing: border-box;
   height: 30px;
-  display: flex;
+  float: left;
+  clear: none;
+  display: block;
   margin-right: 5px;
   padding-left: 15px;
   padding-right: 15px;
   border-radius: 15px;
-  text-align: center;
   border: 0;
   background-color: white;
 }
