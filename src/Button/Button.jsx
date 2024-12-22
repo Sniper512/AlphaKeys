@@ -1,6 +1,10 @@
 import style from "./Button.module.css";
 import RiseLoader from "react-spinners/RiseLoader";
+import PropTypes from 'prop-types';
+
 function Button(props) {
+  const {word, wps,setword, loading}=props;
+
   const keyboardLayout = [
     ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Backspace"],
     ["Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "\\"],
@@ -20,6 +24,7 @@ function Button(props) {
       </button>
     )
   );
+  
   const secondrow = keyboardLayout[1].map((element) =>
     element == "Tab" ? (
       <button key={element} className={`${style.firstbutton} ${style.mediumBtn}`} id={element}>
@@ -75,15 +80,18 @@ function Button(props) {
   });
   let newtem = "";
   let begin;
+
+
   const test = (event) => {
     if (!begin) {
       begin = performance.now();
     }
     const targetValueInput = document.querySelector("#typeWords");
     const keyIdentify = event.key;
-    let sanitizedKey = keyIdentify.replace(/([.*+?^=!:${}()`|\[\]\/\\-])/g, "\\$1");
+    let sanitizedKey = keyIdentify.replace(/([.*+?^=!:${}()`|\]\\-])/g, "\\$1");
     sanitizedKey == " " ? (sanitizedKey = "Space") : sanitizedKey;
     sanitizedKey == "Control" ? (sanitizedKey = "Ctrl") : sanitizedKey;
+
     const LBtn = ["Ctrl", "Shift", "Alt"];
     if (LBtn.includes(sanitizedKey)) {
       const whitL = "L" + sanitizedKey;
@@ -120,33 +128,33 @@ function Button(props) {
       const end = performance.now() - begin;
       const endMinute = end / (1000 * 60);
       console.log(event.target.value.length, endMinute);
-      props.wpm((event.target.value.length / 5 / endMinute).toFixed(2));
+      wps((event.target.value.length / 5 / endMinute).toFixed(2));
       event.target.value = "";
       begin = 0;
-      console.log(props.word.length);
-      switch (props.word.length) {
+      console.log(word.length);
+      switch (word.length) {
         case 25:
-          props.setword("1");
+            setword("1");
           setTimeout(() => {
-            props.setword("25");
+             setword("25");
           }, 0);
           break;
         case 50:
-          props.setword("1");
+           setword("1");
           setTimeout(() => {
-            props.setword("50");
+            setword("50");
           }, 0);
           break;
         case 100:
-          props.setword("1");
+          setword("1");
           setTimeout(() => {
-            props.setword("100");
+            setword("100");
           }, 0);
           break;
         case 150:
-          props.setword("1");
+          setword("1");
           setTimeout(() => {
-            props.setword("150");
+            setword("150");
           }, 0);
           break;
       }
@@ -160,7 +168,7 @@ function Button(props) {
 
   return (
     <div className={style.keyboard}>
-      {props.loading ? (
+      {loading ? (
         <RiseLoader loading={props.loading} size={25} aria-label="Loading Spinner" data-testid="loader" className="typingspce" />
       ) : (
         <div className="typingspce">
@@ -177,4 +185,12 @@ function Button(props) {
     </div>
   );
 }
+
+Button.propTypes = {
+  word: PropTypes.arrayOf(PropTypes.string).isRequired,
+  wps: PropTypes.func.isRequired,
+  setword: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
+};
+
 export default Button;
