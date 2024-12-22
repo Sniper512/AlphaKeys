@@ -161,19 +161,19 @@ function Button(props) {
   return (
     <div className={style.keyboard}>
       {props.loading ? (
-        <RiseLoader loading={props.loading} size={25} aria-label="Loading Spinner" data-testid="loader" />
+        <RiseLoader loading={props.loading} size={25} aria-label="Loading Spinner" data-testid="loader" className="typingspce" />
       ) : (
-        <div>
+        <div className="typingspce">
           <input autoFocus type="text" id="typeInput" className={style.textToType} onKeyDown={(event) => test(event)} autoComplete="off" />
           <input disabled type="text" id="typeWords" className={`${style.textToType} ${style.textForType}`} value={props.word.join(" ")} />
         </div>
       )}
       <br />
-      <div>{firstrow}</div>
-      <div>{secondrow}</div>
-      <div>{thirdrow}</div>
-      <div>{fourhtrow}</div>
-      <div>{fiftrow}</div>
+      <div className="visible-lg">{firstrow}</div>
+      <div className="visible-lg">{secondrow}</div>
+      <div className="visible-lg">{thirdrow}</div>
+      <div className="visible-lg">{fourhtrow}</div>
+      <div className="visible-lg">{fiftrow}</div>
     </div>
   );
 }

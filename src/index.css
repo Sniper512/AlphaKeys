@@ -59,3 +59,43 @@ h1 {
 .radio-bg {
   background-color: #d9eafd;
 }
+@media (max-width: 938px) {
+  .visible-lg {
+    scale: 0;
+    /* visibility: hidden; */
+  }
+  .scale-down {
+    scale: 0.5;
+  }
+  .typingspce {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    width: fit-content;
+  }
+  .hight-30 {
+    font-size: 3vw;
+  }
+  .labelRadio {
+    align-items: center;
+    display: flex;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .hight-30 {
+    top: 5%;
+    position: relative;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h1 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-align: center;
+  }
+}
